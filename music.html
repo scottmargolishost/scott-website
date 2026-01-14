@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Music | Scott Margolis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'], serif: ['"Lora"', 'serif'] },
+                    colors: { 
+                        'dark-sage': '#263c33',
+                        charcoal: '#1c1917', 
+                        ink: '#111827', 
+                        paper: '#f2f0ea' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Disable selecting images when clicking arrows fast */
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-paper antialiased min-h-screen">
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-[9999] bg-black/95 hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        
+        <!-- Close Button (Top Right) -->
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-5xl font-bold hover:text-gray-300 transition-colors z-50 cursor-pointer">&times;</button>
+        
+        <!-- Previous Button (Left) -->
+        <button onclick="prevImage(event)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white text-6xl font-light hover:text-gray-300 transition-colors z-50 cursor-pointer noselect">&#10094;</button>
+        
+        <!-- Next Button (Right) -->
+        <button onclick="nextImage(event)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white text-6xl font-light hover:text-gray-300 transition-colors z-50 cursor-pointer noselect">&#10095;</button>
+
+        <!-- Click background to close -->
+        <div class="absolute inset-0" onclick="closeModal()"></div>
+        
+        <!-- Image Container -->
+        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] rounded shadow-2xl object-contain relative z-10 transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- Nav -->
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto border-b border-gray-800 mb-8">
+        <a href="index.html" class="text-sm font-sans font-bold uppercase tracking-widest hover:text-white text-gray-400 transition-colors flex items-center gap-2">
+            <span>←</span> Back Home
+        </a>
+        <div class="font-serif text-xl font-bold tracking-tight">Live Music</div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-12 px-6 text-center max-w-4xl mx-auto mb-12">
+        <h1 class="font-serif text-5xl md:text-7xl mb-6 text-white">Live Music Energy</h1>
+        <div class="w-16 h-1 bg-white/20 mx-auto mb-6"></div>
+        <p class="font-sans text-gray-400 text-lg font-light">A collection of moments from venues across Chicago and beyond.</p>
+    </header>
+
+    <!-- 21 IMAGE GRID (3 Columns) -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 1 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-1.jpg')">
+                <img src="music-1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 2 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-2.jpg')">
+                <img src="music-2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 3 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-3.jpg')">
+                <img src="music-3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 4 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-4.jpg')">
+                <img src="music-4.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 5 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-5.jpg')">
+                <img src="music-5.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 6 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-6.jpg')">
+                <img src="music-6.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 7 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-7.jpg')">
+                <img src="music-7.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 8 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-8.jpg')">
+                <img src="music-8.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 9 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-9.jpg')">
+                <img src="music-9.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 10 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-10.jpg')">
+                <img src="music-10.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 11 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-11.jpg')">
+                <img src="music-11.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 12 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-12.jpg')">
+                <img src="music-12.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 13 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-13.jpg')">
+                <img src="music-13.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 14 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-14.jpg')">
+                <img src="music-14.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 15 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-15.jpg')">
+                <img src="music-15.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 16 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-16.jpg')">
+                <img src="music-16.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 17 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-17.jpg')">
+                <img src="music-17.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 18 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-18.jpg')">
+                <img src="music-18.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- 19 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-19.jpg')">
+                <img src="music-19.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 20 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-20.jpg')">
+                <img src="music-20.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+            <!-- 21 -->
+            <div class="relative group aspect-[4/3] overflow-hidden bg-gray-800 rounded-sm cursor-zoom-in" onclick="openModal('music-21.jpg')">
+                <img src="music-21.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-12 text-gray-600 text-xs font-sans uppercase tracking-widest border-t border-gray-800">
+        &copy; 2024 Scott Margolis
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Define all image filenames in order
+        const images = [];
+        for(let i=1; i<=21; i++) {
+            images.push(`music-${i}.jpg`);
+        }
+
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openModal(filename) {
+            // Find index of clicked image
+            currentIndex = images.indexOf(filename);
+            updateImage();
+            
+            lightbox.classList.remove('hidden');
+            lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.style.display = 'none';
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        function nextImage(e) {
+            if(e) e.stopPropagation(); // Prevent closing modal when clicking arrow
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage(e) {
+            if(e) e.stopPropagation(); // Prevent closing modal when clicking arrow
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        function updateImage() {
+            // Fade out slightly to indicate change (optional, simpler to just switch)
+            lightboxImg.src = images[currentIndex];
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(event) {
+            if (lightbox.style.display === 'flex') {
+                if (event.key === "Escape") closeModal();
+                if (event.key === "ArrowRight") nextImage();
+                if (event.key === "ArrowLeft") prevImage();
+            }
+        });
+    </script>
+
+</body>
+</html>

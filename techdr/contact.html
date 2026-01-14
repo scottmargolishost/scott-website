@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Scott The Tech Dr.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        linen: { 50: '#fdfcf8', 100: '#f4f1ea', 200: '#e8e2d2', 800: '#5c544e', 900: '#2c2826' },
+                        sage: { 50: '#f4f7f5', 500: '#5c8d73', 600: '#4a755f' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-linen-50 text-linen-800">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 top-0 bg-linen-50/95 backdrop-blur border-b border-linen-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 bg-sage-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
+                    <span class="font-bold text-xl text-linen-900">Scott The Tech Dr., Inc.</span>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-linen-800 hover:text-sage-600 font-medium">Home</a>
+                    <a href="services.html" class="text-linen-800 hover:text-sage-600 font-medium">Services</a>
+                    <a href="testimonials.html" class="text-linen-800 hover:text-sage-600 font-medium">Testimonials</a>
+                    <a href="newsletters.html" class="text-linen-800 hover:text-sage-600 font-medium">Newsletters</a>
+                    <a href="about.html" class="text-linen-800 hover:text-sage-600 font-medium">About Me</a>
+                    <a href="contact.html" class="px-5 py-2 rounded-full bg-sage-600 text-white font-semibold hover:bg-sage-700">Get Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-md border border-linen-200">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-extrabold text-linen-900 mb-4">Request Service</h1>
+                <p class="text-linen-800">Fill out the form below to email me directly. I will get back to you as soon as possible.</p>
+                <div class="mt-4 text-sage-600 font-bold">
+                    Or call: <a href="tel:8473023328" class="hover:underline">(847) 302-3328</a>
+                </div>
+            </div>
+
+            <!-- CONTACT FORM -->
+            <!-- IMPORTANT: To make this email work, you should register your email at https://formspree.io/ -->
+            <!-- Once registered, replace "YOUR_FORM_ID" below with the ID they give you. -->
+            <!-- Alternatively, change action to "mailto:scott@thetechdr.net" (less reliable) -->
+            <form action="https://formspree.io/f/mjggvwvz" method="POST" class="space-y-6">
+                
+                <div>
+                    <label for="name" class="block text-sm font-bold text-linen-900 mb-2">Name</label>
+                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-xl border border-linen-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 outline-none transition-all" placeholder="Your Name">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-bold text-linen-900 mb-2">Email Address</label>
+                    <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-linen-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 outline-none transition-all" placeholder="you@example.com">
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-sm font-bold text-linen-900 mb-2">Phone Number</label>
+                    <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-xl border border-linen-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 outline-none transition-all" placeholder="(847) 555-0123">
+                </div>
+
+                <div>
+                    <label for="service-type" class="block text-sm font-bold text-linen-900 mb-2">How can I help?</label>
+                    <select name="service-type" id="service-type" class="w-full px-4 py-3 rounded-xl border border-linen-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 outline-none transition-all">
+                        <option value="Computer Repair">Computer Repair/Tune-up</option>
+                        <option value="WiFi/Network">WiFi or Network Issue</option>
+                        <option value="New Device">New Device Setup</option>
+                        <option value="Tutoring">Tutoring/Training</option>
+                        <option value="Smart Home">Smart Home/TV</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-bold text-linen-900 mb-2">Message</label>
+                    <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-linen-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 outline-none transition-all" placeholder="Describe your issue..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-sage-600 text-white font-bold rounded-xl hover:bg-sage-700 transition-colors shadow-lg">
+                    Send Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-linen-900 text-linen-300 py-12 text-center">
+        <p>&copy; 2024 Scott The Tech Dr., Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

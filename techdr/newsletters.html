@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletters | Scott The Tech Dr., Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        linen: { 50: '#fdfcf8', 100: '#f4f1ea', 200: '#e8e2d2', 800: '#5c544e', 900: '#2c2826' },
+                        sage: { 50: '#f4f7f5', 500: '#5c8d73', 600: '#4a755f' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-linen-50 text-linen-800">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 top-0 bg-linen-50/95 backdrop-blur border-b border-linen-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 bg-sage-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
+                    <span class="font-bold text-xl text-linen-900">Scott The Tech Dr., Inc.</span>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-linen-800 hover:text-sage-600 font-medium">Home</a>
+                    <a href="services.html" class="text-linen-800 hover:text-sage-600 font-medium">Services</a>
+                    <a href="testimonials.html" class="text-linen-800 hover:text-sage-600 font-medium">Testimonials</a>
+                    <a href="newsletters.html" class="text-sage-600 font-bold">Newsletters</a>
+                    <a href="about.html" class="text-linen-800 hover:text-sage-600 font-medium">About Me</a>
+                    <a href="contact.html" class="px-5 py-2 rounded-full bg-sage-600 text-white font-semibold hover:bg-sage-700">Get Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-linen-900 mb-6">Tech Tips & Newsletters</h1>
+            <p class="text-lg text-linen-800">Archive of advice on how to stay safe and get the most out of your technology.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- NEW 1: Windows 10 Deadline -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">End of Support</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Windows 10 Deadline</h3>
+                <p class="text-linen-800 mb-6">Microsoft is ending support for Windows 10 soon. Learn what this means for your computer's security and what steps you need to take now.</p>
+                <a href="https://mailchi.mp/a9f3df115999/windows-10-deadline" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- NEW 2: PayPal Alert -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Scam Alert</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Important Alert – Protect Your PayPal Account</h3>
+                <p class="text-linen-800 mb-6">A new wave of phishing emails targeting PayPal users is circulating. Here is how to spot the fake emails and keep your money safe.</p>
+                <a href="https://mailchi.mp/aabd72e5ac4b/important-alert-protect-your-paypal-account" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- NEW 3: June 2025 Tech Advisor -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Maintenance</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Beat the Heat & Tech Troubles: Your June 2025 Tech Advisor</h3>
+                <p class="text-linen-800 mb-6">Summer heat can destroy electronics. Tips on keeping your devices cool, plus managing your digital life this season.</p>
+                <a href="https://mailchi.mp/c49643a1d297/beat-the-heat-tech-troubles-your-june-2025-tech-advisor" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- NEW 4: 23andMe -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Privacy Alert</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Protect Your Data – 23andMe Bankruptcy & Privacy Risks</h3>
+                <p class="text-linen-800 mb-6">With 23andMe facing financial trouble, your genetic data could be at risk. Here is what you should consider doing immediately.</p>
+                <a href="https://mailchi.mp/50d6f27053a5/urgent-protect-your-data-23andme-bankruptcy-privacy-risks" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- NEW 5: Latest Scams -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Security</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Stay Safe from the Latest Scams</h3>
+                <p class="text-linen-800 mb-6">An overview of the most sophisticated scams currently targeting seniors and families, and how to avoid falling victim.</p>
+                <a href="https://mailchi.mp/4dd96855b01a/scam-alert-security-updates-from-scott-the-tech-dr-inc" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 1 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Security Alert</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Mac users, update your iPhone, iPad, Mac and Apple Watch now</h3>
+                <p class="text-linen-800 mb-6">Important security updates were released by Apple to fix critical vulnerabilities. Ensure your devices are up to date immediately.</p>
+                <a href="https://mailchi.mp/e6b38922d52c/update-your-iphone-ipad-macright-now?e=6242e38936" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 2 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Windows Update</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Windows users…it's time to force an update</h3>
+                <p class="text-linen-800 mb-6">Don't wait for the automatic update. There are critical patches you need to install manually to stay safe.</p>
+                <a href="https://mailchi.mp/3315ad567275/update-your-computer" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 3 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Home Internet</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Is your home internet keeping up with your needs?</h3>
+                <p class="text-linen-800 mb-6">With more streaming and smart devices, your old router might be choking your speed. Here is how to check.</p>
+                <a href="https://mailchi.mp/36ac69d22cc3/hows-your-home-internet?fbclid=IwAR38cdBZz3p7db59e1f31xhYhDoI4hO_b-OhvUfads5n1QckohjVQvvzVvk" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 4 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Scam Alert</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">The Blackmail Email Scam</h3>
+                <p class="text-linen-800 mb-6">Have you received an email claiming they have access to your webcam? Don't panic. It's a common scam.</p>
+                <a href="https://mailchi.mp/4a029c006fff/blackmail-scam" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 5 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Video Calls</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">How To Look Your Best on a Webcam</h3>
+                <p class="text-linen-800 mb-6">Simple lighting and positioning tips to look professional on your next Zoom or FaceTime call.</p>
+                <a href="https://mailchi.mp/3a181c73461d/how-to-look-your-best-on-a-webcam?e=66c597a635" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- NEW 6 (Inserted after webcam entry): Computer Fatigue -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Health & Tech</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Computer Fatigue</h3>
+                <p class="text-linen-800 mb-6">Feeling drained after long hours in front of the screen? Tips on ergonomics, eye strain, and taking proper breaks.</p>
+                <a href="https://mailchi.mp/21d11a0ec641/computer-fatigue?e=cce9cd1e62" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 6 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Smart Home</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Ring Camera Security Update</h3>
+                <p class="text-linen-800 mb-6">If you own a Ring device, there are new settings you need to enable to keep hackers out of your camera feed.</p>
+                <a href="https://mailchi.mp/cc4adbd15f2a/ring-camera-security?e=66c597a635" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 7 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Purchasing</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">New Computer?</h3>
+                <p class="text-linen-800 mb-6">What to look for when buying a new machine, and how to transfer your old data safely.</p>
+                <a href="https://mailchi.mp/59ea799d1b27/looking-for-a-new-computer" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+            <!-- Existing 8 -->
+            <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Software Alert</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Firefox Warning</h3>
+                <p class="text-linen-800 mb-6">Mozilla has released an urgent patch for Firefox users. Make sure your browser is up to date.</p>
+                <a href="https://mailchi.mp/c1b3ef9dde90/firefox-warning-update-your-browser-now" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+             <!-- Existing 9 -->
+             <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Router Maintenance</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Reboot Your Router</h3>
+                <p class="text-linen-800 mb-6">It sounds simple, but restarting your router periodically can solve speed issues and clear out memory errors.</p>
+                <a href="https://mailchi.mp/fdb84a6a530b/warningreboot-your-router" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+             <!-- Existing 10 -->
+             <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Phishing</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Google Docs Scam</h3>
+                <p class="text-linen-800 mb-6">Be careful of emails inviting you to edit a Google Doc. It might be a trick to steal your login credentials.</p>
+                <a href="https://mailchi.mp/2a5904aca9ea/tech-dr-newsletter" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+             <!-- Existing 11 -->
+             <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Windows 7</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">Windows 7 End of Life</h3>
+                <p class="text-linen-800 mb-6">Microsoft has ended support for Windows 7. If you are still using it, you are vulnerable to attacks.</p>
+                <a href="https://mailchi.mp/f5e3ec5b2b0b/windows-7-end-of-life" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+             <!-- Existing 12 -->
+             <div class="bg-white p-8 rounded-2xl border border-linen-200 shadow-sm hover:shadow-md transition-shadow">
+                <span class="text-xs font-bold text-sage-600 uppercase tracking-wide">Password Safety</span>
+                <h3 class="text-2xl font-bold text-linen-900 mt-2 mb-4">LastPass Alert</h3>
+                <p class="text-linen-800 mb-6">Important information for users of the LastPass password manager regarding recent security news.</p>
+                <a href="https://us2.campaign-archive.com/?u=eac2bd0ca351ac3ad1f86fbf3&id=b544cc4bd6" target="_blank" class="text-sage-600 font-bold hover:underline">Read Issue &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-linen-900 text-linen-300 py-12 text-center">
+        <p>&copy; 2024 Scott The Tech Dr., Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

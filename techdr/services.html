@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Scott The Tech Dr., Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        linen: { 50: '#fdfcf8', 100: '#f4f1ea', 200: '#e8e2d2', 800: '#5c544e', 900: '#2c2826' },
+                        sage: { 50: '#f4f7f5', 500: '#5c8d73', 600: '#4a755f' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-linen-50 text-linen-800 antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 top-0 bg-linen-50/95 backdrop-blur border-b border-linen-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 bg-sage-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
+                    <span class="font-bold text-xl text-linen-900">Scott The Tech Dr., Inc.</span>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-linen-800 hover:text-sage-600 font-medium">Home</a>
+                    <a href="services.html" class="text-sage-600 font-bold">Services</a>
+                    <a href="testimonials.html" class="text-linen-800 hover:text-sage-600 font-medium">Testimonials</a>
+                    <a href="newsletters.html" class="text-linen-800 hover:text-sage-600 font-medium">Newsletters</a>
+                    <a href="about.html" class="text-linen-800 hover:text-sage-600 font-medium">About Me</a>
+                    <a href="contact.html" class="px-5 py-2 rounded-full bg-sage-600 text-white font-semibold hover:bg-sage-700">Get Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-linen-900 mb-6">Services Provided</h1>
+            <!-- Combined Text Here -->
+            <p class="text-lg text-linen-800 max-w-2xl mx-auto">From legacy systems to the latest smart gadgets, I handle it all. Browse just some of the services I offer below.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service Card 1: Computer Repair -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Computer Internal Parts" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Computer Repair</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Virus, Spyware & Malware Removal</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Speed up slow computers</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> SSD & RAM Upgrades</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Mac & PC Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Card 2: WiFi -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <!-- USER IMAGE: wifi.jpg -->
+                    <img src="wifi.jpg" 
+                         alt="WiFi signal symbol" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Networking & WiFi</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Mesh WiFi installation (Eero, Orbi)</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Fixing WiFi "Dead Zones"</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Modem/Router troubleshooting</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Network Security setup</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Card 3: Smart Home -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <!-- USER IMAGE: smarthome.jpg -->
+                    <img src="smarthome.jpg" 
+                         alt="Smart home network concept" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Smart Home</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Smart TV & Streaming Setup</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Smart Speakers (Amazon Echo, Google Nest, Apple HomePod)</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Ring Doorbell Installation</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Cutting the Cord (Cable to Apps)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Card 4: Tutoring -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Teaching on Laptop" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Tutoring & Training</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> How to use iPhone/iPad</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Photo Organization (iCloud)</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Password Management</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Zoom, FaceTime & Email help</li>
+                    </ul>
+                </div>
+            </div>
+
+             <!-- Service Card 5: Buying Advice -->
+             <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <!-- USER IMAGE: advice.jpg -->
+                    <img src="advice.jpg" 
+                         alt="Helping hand advice" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Buying Advice</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Recommendations for new Computers</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Shopping for Printers & Monitors</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Data Transfer to new devices</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Unbiased, honest advice</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Card 6: Backups -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-linen-200 group hover:shadow-2xl transition-all duration-300">
+                <div class="h-56 overflow-hidden">
+                    <!-- USER IMAGE: backup.jpg -->
+                    <img src="backup.jpg" 
+                         alt="USB Drives Backups" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-sage-600 mb-4">Backups & Data</h2>
+                    <ul class="space-y-3 text-linen-800">
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Automatic backup setup</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Recovering lost files</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Organizing digital files</li>
+                        <li class="flex items-start"><span class="text-sage-500 mr-2">•</span> Cloud storage explanation</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href="contact.html" class="px-8 py-4 rounded-full bg-sage-600 text-white text-lg font-bold hover:bg-sage-700 transition-shadow shadow-lg">Schedule An Appointment</a>
+        </div>
+    </div>
+
+    <footer class="bg-linen-900 text-linen-300 py-12 text-center">
+        <p>&copy; 2024 Scott The Tech Dr., Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

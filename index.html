@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scott Margolis | Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Lora"', 'serif'],
+                    },
+                    colors: {
+                        'dark-sage': '#263c33', /* Dark Sage Background */
+                        paper: '#f2f0ea',    /* Light text color */
+                        taupe: '#e6e4df',    /* Bio Background */
+                        charcoal: '#1c1917', /* Dark Section Background */
+                        stone: '#d6d3d1',    /* Gallery Background */
+                        ink: '#111827',      /* Main Text */
+                    },
+                    boxShadow: {
+                        'polaroid': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 8px #ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Floating Animation for Polaroids */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(var(--rot)); }
+            50% { transform: translateY(-8px) rotate(var(--rot)); }
+            100% { transform: translateY(0px) rotate(var(--rot)); }
+        }
+        .polaroid {
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            z-index: 50;
+            transform: scale(1.1) rotate(0deg) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 8px #ffffff;
+        }
+        
+        /* Carousel Transitions */
+        .carousel-track {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 0 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .carousel-slide {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+        }
+        
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased bg-dark-sage">
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-[9999] bg-black/95 hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-5xl font-bold hover:text-gray-300 transition-colors z-50 cursor-pointer">&times;</button>
+        <!-- Click background to close -->
+        <div class="absolute inset-0" onclick="closeModal()"></div>
+        <!-- Image Container -->
+        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] rounded shadow-2xl object-contain relative z-10 transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- BORDER TOP -->
+    <div class="w-full h-2 bg-stone-400 fixed top-0 left-0 z-50"></div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="bg-dark-sage min-h-[95vh] flex flex-col justify-between relative overflow-hidden">
+        
+        <!-- Navigation -->
+        <nav class="w-full pt-12 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto relative z-20">
+            <div class="text-xl font-serif font-bold tracking-tight text-white uppercase border-b-2 border-white/30 pb-1">
+                Scott Margolis
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-8 text-sm font-sans font-medium text-gray-300 uppercase tracking-widest">
+                <a href="#bio" class="hover:text-white transition-colors">Bio</a>
+                <a href="#interests" class="hover:text-white transition-colors">Interests</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Visuals</a>
+            </div>
+        </nav>
+
+        <!-- POLAROIDS (Left Side - Desktop Only) -->
+        <div class="hidden xl:block absolute left-0 top-0 w-1/4 h-full pointer-events-auto z-10">
+            <!-- Image 1 -->
+            <div class="polaroid absolute top-[20%] left-[20%]" style="--rot: -6deg; animation-delay: 0s;">
+                <img src="polaroid-1.jpg" alt="Favorite Item 1" class="w-40 h-40 object-cover shadow-polaroid transform -rotate-6">
+            </div>
+            <!-- Image 2 -->
+            <div class="polaroid absolute top-[45%] left-[40%]" style="--rot: 12deg; animation-delay: 2s;">
+                <img src="polaroid-2.jpg" alt="Favorite Item 2" class="w-32 h-32 object-cover shadow-polaroid transform rotate-12">
+            </div>
+            <!-- Image 3 -->
+            <div class="polaroid absolute top-[70%] left-[15%]" style="--rot: -3deg; animation-delay: 4s;">
+                <img src="polaroid-3.jpg" alt="Favorite Item 3" class="w-36 h-36 object-cover shadow-polaroid transform -rotate-3">
+            </div>
+        </div>
+
+        <!-- POLAROIDS (Right Side - Desktop Only) -->
+        <div class="hidden xl:block absolute right-0 top-0 w-1/4 h-full pointer-events-auto z-10">
+            <!-- Image 4 -->
+            <div class="polaroid absolute top-[25%] right-[20%]" style="--rot: 8deg; animation-delay: 1s;">
+                <img src="polaroid-4.jpg" alt="Favorite Item 4" class="w-40 h-40 object-cover shadow-polaroid transform rotate-8">
+            </div>
+            <!-- Image 5 -->
+            <div class="polaroid absolute top-[50%] right-[45%]" style="--rot: -8deg; animation-delay: 3s;">
+                <img src="polaroid-5.jpg" alt="Favorite Item 5" class="w-32 h-32 object-cover shadow-polaroid transform -rotate-8">
+            </div>
+            <!-- Image 6 -->
+            <div class="polaroid absolute top-[75%] right-[15%]" style="--rot: 4deg; animation-delay: 5s;">
+                <img src="polaroid-6.jpg" alt="Favorite Item 6" class="w-36 h-36 object-contain bg-white shadow-polaroid transform rotate-4">
+            </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="flex-grow flex items-center justify-center py-20 px-6 relative z-20">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-8">
+                    Tech by day. <br>
+                    <span class="italic text-gray-400">Front row</span> by night.
+                </h1>
+                <div class="w-16 h-1 bg-white/50 mx-auto mb-8"></div>
+                <p class="font-sans text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                    A personal archive of life in Chicago. <br>
+                    Exploring the intersection of live music, food culture, e-biking, and the ever-evolving world of media and technology.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="w-full text-center pb-8 animate-bounce text-gray-400 relative z-20">
+            ↓
+        </div>
+    </section>
+
+    <!-- 2. BIO SECTION (Light Taupe) -->
+    <section id="bio" class="bg-taupe py-20 md:py-32 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            
+            <!-- FUN STYLE IMAGE GRID (9 PHOTOS) -->
+            <div class="md:col-span-6 grid grid-cols-3 gap-3 pr-4">
+                <div class="relative aspect-square rotate-[-3deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-1.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[2deg] translate-y-4 hover:rotate-0 transition-transform duration-300 z-20 hover:z-50 hover:scale-110"><img src="bio-2.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[-2deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-3.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[3deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-4.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[0deg] scale-105 hover:scale-110 transition-transform duration-300 z-30 shadow-xl"><img src="bio-5.jpg" class="object-cover w-full h-full rounded-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[-3deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-6.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[-1deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-7.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[3deg] translate-y-[-10px] hover:rotate-0 transition-transform duration-300 z-20 hover:z-50 hover:scale-110"><img src="bio-8.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+                <div class="relative aspect-square rotate-[1deg] hover:rotate-0 transition-transform duration-300 z-10 hover:z-50 hover:scale-110"><img src="bio-9.jpg" class="object-cover w-full h-full rounded-lg shadow-lg border-2 border-white"></div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="md:col-span-6 md:pl-10">
+                <span class="font-sans text-xs font-bold tracking-widest text-gray-500 uppercase mb-4 block">The Backstory</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-ink mb-8 leading-tight">
+                    Balancing the digital world <br>with the real one.
+                </h2>
+                <div class="font-serif text-gray-700 space-y-6 text-lg leading-relaxed border-l-2 border-gray-300 pl-6">
+                    <p>
+                        By trade, I'm the owner of <a href="https://thetechdr.net" target="_blank" class="font-bold underline decoration-1 underline-offset-4 hover:text-black">Scott The Tech Dr., Inc.</a>, helping Chicago families and businesses navigate the complex digital world.
+                    </p>
+                    <p>
+                        But this site isn't about work. Off the clock, I'm a dad to a high schooler and a man of many obsessions. I love exploring the Chicago food scene—whether it's trying new restaurants in the city and suburbs, or cooking at home with my girlfriend (and taking plenty of food pics along the way).
+                    </p>
+                    <p>
+                        You'll often find me traveling, catching live music, watching my media on Plex, or riding my e-bike through the North Shore and Chicago. It's all about finding the perfect angle at a live show and the perfect bite in the neighborhood.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. INTERESTS SECTION (Dark Charcoal) -->
+    <section id="interests" class="bg-charcoal text-stone-200 py-24 md:py-40 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-gray-700 pb-8">
+                <h2 class="font-serif text-4xl md:text-6xl text-white">Current Obsessions</h2>
+                <p class="font-sans text-gray-400 mt-4 md:mt-0 uppercase tracking-widest text-sm">What keeps me busy</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-24">
+                
+                <!-- Interest 1: Music (Links to music.html) -->
+                <a href="music.html" class="group block">
+                    <div class="overflow-hidden mb-6 h-80 relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 flex items-center justify-center">
+                            <span class="text-white font-sans text-sm tracking-widest uppercase border border-white px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity">View Gallery</span>
+                        </div>
+                        <img src="obsession-music.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-3xl text-white mb-3 group-hover:text-gray-300 transition-colors">Live Music & Photography</h3>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed max-w-sm">
+                        There is nothing like the energy of seeing music live. I document the shows I attend, chasing the perfect lighting and raw emotion of live performance.
+                    </p>
+                </a>
+
+                <!-- Interest 2: Food (Links to food.html) -->
+                <a href="food.html" class="group block md:mt-20"> 
+                    <div class="overflow-hidden mb-6 h-80 relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 flex items-center justify-center">
+                            <span class="text-white font-sans text-sm tracking-widest uppercase border border-white px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity">View Gallery</span>
+                        </div>
+                        <img src="obsession-food.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-3xl text-white mb-3 group-hover:text-gray-300 transition-colors">The Food Scene</h3>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed max-w-sm">
+                        I'm a dedicated foodie. Whether it's a hidden gem in the city or the best spot in the North Shore, I'm documenting the meals worth remembering.
+                    </p>
+                </a>
+
+                <!-- Interest 3: Life (Links to life.html) -->
+                <a href="life.html" class="group block">
+                    <div class="overflow-hidden mb-6 h-80 relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 flex items-center justify-center">
+                            <span class="text-white font-sans text-sm tracking-widest uppercase border border-white px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity">View Gallery</span>
+                        </div>
+                        <img src="obsession-tech.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-3xl text-white mb-3 group-hover:text-gray-300 transition-colors">Life These Days</h3>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Spending quality time with family, watching movies with my son on my Plex server, and automating my smart home. Plus, a collection of random recent pictures capturing the moments in between.
+                    </p>
+                </a>
+
+                <!-- Interest 4: Bike (Links to bike.html) -->
+                <a href="bike.html" class="group block md:mt-20">
+                    <div class="overflow-hidden mb-6 h-80 relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 flex items-center justify-center">
+                            <span class="text-white font-sans text-sm tracking-widest uppercase border border-white px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity">View Gallery</span>
+                        </div>
+                        <img src="obsession-bike.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-3xl text-white mb-3 group-hover:text-gray-300 transition-colors">E-Biking the North Shore and Chicago</h3>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Exploring the trails and streets of the North Shore on two wheels. It's the perfect intersection of tech and getting outdoors.
+                    </p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GALLERY STRIP (3 GROUPS OF 4, AUTO-ROTATING, LIGHTBOX) -->
+    <section id="gallery" class="bg-stone py-20 px-0 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-10">
+            <h2 class="font-serif text-3xl text-ink">Recent Captures</h2>
+            <p class="text-sm font-sans text-gray-500 mt-2">Click an image to view in detail.</p>
+        </div>
+        
+        <!-- Carousel Track -->
+        <div class="carousel-track" id="gallery-track">
+            
+            <!-- Group 1 (Images 1-4) -->
+            <div class="carousel-slide">
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-1.jpg')"><img src="capture-1.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-2.jpg')"><img src="capture-2.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-3.jpg')"><img src="capture-3.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-4.jpg')"><img src="capture-4.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+            </div>
+
+            <!-- Group 2 (Images 5-8) -->
+            <div class="carousel-slide">
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-5.jpg')"><img src="capture-5.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-6.jpg')"><img src="capture-6.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-7.jpg')"><img src="capture-7.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-8.jpg')"><img src="capture-8.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+            </div>
+
+            <!-- Group 3 (Images 9-12) -->
+            <div class="carousel-slide">
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-9.jpg')"><img src="capture-9.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-10.jpg')"><img src="capture-10.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-11.jpg')"><img src="capture-11.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+                <div class="bg-gray-200 shadow-lg h-64 md:h-80 cursor-zoom-in overflow-hidden" onclick="openModal('capture-12.jpg')"><img src="capture-12.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-paper text-ink py-16 px-6 border-t border-gray-300">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-8 md:mb-0">
+                <h3 class="font-serif text-2xl font-bold mb-2">Scott Margolis</h3>
+                <p class="text-sm font-sans uppercase tracking-widest text-gray-500">Based in Skokie, IL</p>
+            </div>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-sm font-bold uppercase tracking-widest">
+                <a href="mailto:scottmargolis@gmail.com" class="hover:text-gray-500 transition-colors">Email</a>
+                <a href="https://thetechdr.net" class="hover:text-gray-500 transition-colors">Business Site</a>
+                <a href="#" class="hover:text-gray-500 transition-colors">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // CAROUSEL LOGIC
+        const track = document.getElementById('gallery-track');
+        let currentSlide = 0;
+        const totalSlides = 3; 
+
+        // Rotate every 10 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 10000);
+
+        // LIGHTBOX LOGIC
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openModal(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.style.display = 'none';
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
