@@ -30,6 +30,8 @@
                     <div class="w-10 h-10 bg-sage-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
                     <span class="font-bold text-xl text-linen-900">Scott The Tech Dr., Inc.</span>
                 </div>
+                
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="index.html" class="text-linen-800 hover:text-sage-600 font-medium">Home</a>
                     <a href="services.html" class="text-linen-800 hover:text-sage-600 font-medium">Services</a>
@@ -37,6 +39,30 @@
                     <a href="newsletters.html" class="text-sage-600 font-bold">Newsletters</a>
                     <a href="about.html" class="text-linen-800 hover:text-sage-600 font-medium">About Me</a>
                     <a href="contact.html" class="px-5 py-2 rounded-full bg-sage-600 text-white font-semibold hover:bg-sage-700">Get Help</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-linen-900 hover:text-sage-600 focus:outline-none p-2">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-linen-200 absolute w-full left-0 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="index.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Home</a>
+                <a href="services.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Services</a>
+                <a href="testimonials.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Testimonials</a>
+                <a href="newsletters.html" class="block px-4 py-3 text-lg font-bold text-sage-600 bg-linen-50 rounded-lg">Newsletters</a>
+                <a href="about.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">About Me</a>
+                <a href="contact.html" class="block px-4 py-3 text-lg text-sage-700 font-bold hover:bg-linen-50 rounded-lg">Get Help</a>
+                <div class="pt-4 border-t border-linen-100 mt-2">
+                    <a href="tel:8473023328" class="block px-4 py-2 text-lg font-bold text-sage-600 flex items-center gap-2"><span>📞</span> (847) 302-3328</a>
                 </div>
             </div>
         </div>
@@ -200,5 +226,17 @@
     <footer class="bg-linen-900 text-linen-300 py-12 text-center">
         <p>&copy; 2024 Scott The Tech Dr., Inc. All rights reserved.</p>
     </footer>
+
+    <!-- SCRIPT FOR MOBILE MENU TOGGLE -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
