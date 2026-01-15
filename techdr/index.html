@@ -13,7 +13,7 @@
                     fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
                     colors: {
                         linen: { 50: '#fdfcf8', 100: '#f4f1ea', 200: '#e8e2d2', 800: '#5c544e', 900: '#2c2826' },
-                        sage: { 50: '#f4f7f5', 500: '#5c8d73', 600: '#4a755f', 700: '#3d5e4d' },
+                        sage: { 50: '#f4f7f5', 500: '#5c8d73', 600: '#4a755f', 700: '#3d5e4d', 800: '#166534', 900: '#14532d' },
                         tech: { 500: '#64748b' }
                     },
                     boxShadow: { 'warm': '0 10px 15px -3px rgba(92, 84, 78, 0.05)' }
@@ -29,24 +29,55 @@
 </head>
 <body class="bg-linen-50 text-linen-800 antialiased selection:bg-sage-100 selection:text-sage-700">
 
-    <!-- NAV -->
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 top-0 glass transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
                     <div class="w-10 h-10 bg-sage-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-warm">S</div>
                     <div class="flex flex-col md:flex-row md:items-baseline md:gap-4">
                         <span class="font-bold text-xl tracking-tight text-linen-900 leading-none">Scott The Tech Dr., Inc.</span>
-                        <a href="tel:8473023328" class="hidden md:block text-sage-600 font-semibold hover:text-sage-800 transition-colors text-lg">(847) 302-3328</a>
+                        <a href="tel:8473023328" class="hidden xl:block text-sage-600 font-semibold hover:text-sage-800 transition-colors text-lg">(847) 302-3328</a>
                     </div>
                 </div>
-                <div class="hidden md:flex space-x-6 items-center">
-                    <a href="index.html" class="text-sage-600 font-bold">Home</a>
+
+                <!-- Desktop Menu (Hidden on Mobile) -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="index.html" class="text-sage-600 font-bold border-b-2 border-sage-600">Home</a>
                     <a href="services.html" class="text-linen-800 hover:text-sage-600 font-medium transition-colors">Services</a>
                     <a href="testimonials.html" class="text-linen-800 hover:text-sage-600 font-medium transition-colors">Testimonials</a>
                     <a href="newsletters.html" class="text-linen-800 hover:text-sage-600 font-medium transition-colors">Newsletters</a>
                     <a href="about.html" class="text-linen-800 hover:text-sage-600 font-medium transition-colors">About Me</a>
                     <a href="contact.html" class="px-6 py-3 rounded-full bg-sage-600 text-white font-semibold hover:bg-sage-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Get Help</a>
+                </div>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-linen-900 hover:text-sage-600 focus:outline-none p-2">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-linen-200 absolute w-full left-0 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="index.html" class="block px-4 py-3 text-lg font-bold text-sage-600 bg-linen-50 rounded-lg">Home</a>
+                <a href="services.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Services</a>
+                <a href="testimonials.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Testimonials</a>
+                <a href="newsletters.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">Newsletters</a>
+                <a href="about.html" class="block px-4 py-3 text-lg text-linen-800 font-medium hover:bg-linen-50 rounded-lg">About Me</a>
+                <a href="contact.html" class="block px-4 py-3 text-lg text-sage-700 font-bold hover:bg-linen-50 rounded-lg">Get Help</a>
+                <!-- Phone number for mobile -->
+                <div class="pt-4 border-t border-linen-100 mt-2">
+                    <a href="tel:8473023328" class="block px-4 py-2 text-lg font-bold text-sage-600 flex items-center gap-2">
+                        <span>📞</span> (847) 302-3328
+                    </a>
                 </div>
             </div>
         </div>
@@ -56,6 +87,8 @@
     <section class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-linen-100 to-linen-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left: Text Content -->
                 <div class="fade-in-up space-y-6">
                     <div class="flex flex-wrap gap-3">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 border border-linen-200 text-sage-700 text-sm font-semibold shadow-sm backdrop-blur-sm">
@@ -68,24 +101,30 @@
                     
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-linen-900 leading-[1.15]">
                         Tech support that feels like a neighbor helping out—<br>
-                        <!-- ADDED: pr-2 and py-1 to give the italic text room so it doesn't clip -->
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sage-600 to-tech-500 italic pr-2 py-1">patiently explained.</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sage-600 to-tech-500 italic pb-2 pr-1">patiently explained.</span>
                     </h1>
                     
                     <p class="text-lg md:text-xl text-linen-800 max-w-lg leading-relaxed">
                         Computer repairs, smart home setup, printer fixes, and friendly tutoring. No geek-speak, just expert help for all your technology.
                     </p>
+                    
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="contact.html" class="px-8 py-4 rounded-full bg-linen-900 text-white text-lg font-semibold hover:bg-sage-600 transition-all shadow-lg text-center flex items-center justify-center gap-2"><span>📞</span> Book a Visit</a>
-                        <a href="services.html" class="px-8 py-4 rounded-full bg-white/80 border border-linen-200 text-linen-800 text-lg font-semibold hover:bg-white hover:border-sage-300 transition-all text-center">View Services</a>
+                        <a href="contact.html" class="px-8 py-4 rounded-full bg-linen-900 text-white text-lg font-semibold hover:bg-sage-600 transition-all shadow-lg text-center flex items-center justify-center gap-2">
+                            <span>📞</span> Book a Visit
+                        </a>
+                        <a href="services.html" class="px-8 py-4 rounded-full bg-white/80 border border-linen-200 text-linen-800 text-lg font-semibold hover:bg-white hover:border-sage-300 transition-all text-center">
+                            View Services
+                        </a>
                     </div>
                 </div>
-                
-                <!-- HERO IMAGE -->
-                <div class="relative fade-in-up flex justify-center" style="animation-delay: 0.2s;">
+
+                <!-- Right: Image -->
+                <div class="relative fade-in-up" style="animation-delay: 0.2s;">
                     <div class="absolute -top-8 -right-8 w-72 h-72 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                     <div class="absolute -bottom-12 -left-8 w-72 h-72 bg-sage-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
-                    <div class="relative rounded-2xl shadow-2xl border-4 border-white overflow-hidden group aspect-[3/4] w-full max-w-md">
+                    
+                    <!-- USER IMAGE PLACEHOLDER -->
+                    <div class="relative rounded-2xl shadow-2xl border-4 border-white overflow-hidden group aspect-[4/3]">
                         <img src="hero-image.jpg" alt="Scott helping a client at home" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700 bg-linen-200">
                     </div>
                 </div>
@@ -108,11 +147,12 @@
                     </div>
                 </div>
 
-                <!-- Text Content -->
                 <div>
-                    <div class="inline-block px-3 py-1 mb-4 rounded-full bg-linen-100 border border-linen-200 text-sage-800 text-xs uppercase tracking-wide font-bold shadow-sm">
+                    <!-- UPDATED BUBBLE COLOR HERE: bg-sage-900 ensures white text is legible -->
+                    <div class="inline-block px-4 py-2 mb-4 rounded-full bg-sage-900 border border-sage-500 text-white text-xs uppercase tracking-wide font-bold shadow-sm">
                         20 Years Serving Chicagoland
                     </div>
+                    
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-linen-50">Local Roots, Expert Help.</h2>
                     <div class="space-y-4 text-linen-100 text-lg leading-relaxed font-light">
                         <p>Hi, I'm Scott. I’ve been working with Chicagoland families and small businesses for 20 years now. I grew up in <strong>Northbrook</strong> and moved to <strong>Evanston</strong> in 1995. While my office is in Skokie, I travel all over the North Shore and Chicago.</p>
@@ -127,13 +167,43 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-linen-900 text-linen-300 py-16 text-center md:text-left">
+    <!-- SERVICES PREVIEW -->
+    <section class="py-20 bg-linen-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-linen-900 mb-4">Complete Home Tech Support</h2>
+                <p class="text-lg text-linen-800">I don't just fix computers. I help with all the technology in your home.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group rounded-2xl bg-white border border-linen-200 shadow-warm overflow-hidden hover:shadow-xl hover:border-sage-300 transition-all duration-300">
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                    <div class="p-8"><h3 class="text-xl font-bold text-linen-900 mb-2">Computer Tune-ups</h3><p class="text-linen-800 text-sm">Virus removal, speed ups, and safety checks for Mac & PC.</p></div>
+                </div>
+                <!-- Service 2 -->
+                <div class="group rounded-2xl bg-white border border-linen-200 shadow-warm overflow-hidden hover:shadow-xl hover:border-sage-300 transition-all duration-300">
+                    <div class="h-48 overflow-hidden"><img src="wifi.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                    <div class="p-8"><h3 class="text-xl font-bold text-linen-900 mb-2">WiFi & Smart Home</h3><p class="text-linen-800 text-sm">Fixing dead zones, smart TVs, and mesh networks.</p></div>
+                </div>
+                <!-- Service 3 -->
+                <div class="group rounded-2xl bg-white border border-linen-200 shadow-warm overflow-hidden hover:shadow-xl hover:border-sage-300 transition-all duration-300">
+                    <div class="h-48 overflow-hidden"><img src="backup.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                    <div class="p-8"><h3 class="text-xl font-bold text-linen-900 mb-2">Backups & Data</h3><p class="text-linen-800 text-sm">Secure your family photos and documents automatically.</p></div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="services.html" class="inline-flex items-center justify-center px-8 py-3 border border-sage-600 text-sage-600 font-bold rounded-full hover:bg-sage-50 transition-colors">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-linen-900 text-linen-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
             <div class="bg-sage-600 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-16 shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Ready for stress-free tech?</h2>
-                    <!-- High visibility text -->
+                    <!-- Improved Contrast -->
                     <p class="text-white font-medium">Call Scott today.</p>
                 </div>
                 <div class="relative z-10 flex flex-col gap-3 w-full md:w-auto">
@@ -144,9 +214,21 @@
             </div>
             <div class="border-t border-linen-800 pt-8 text-sm flex flex-col md:flex-row justify-between">
                 <p>&copy; 2024 Scott The Tech Dr., Inc.</p>
-                <p>Service Areas: Evanston • Northbrook • Skokie • Wilmette • Glenview • Highland Park • Winnetka • Glencoe • Deerfield • Lincolnwood • Morton Grove • Niles • Park Ridge & more</p>
+                <p class="mt-4 md:mt-0">Service Areas: Evanston • Northbrook • Skokie • Wilmette • Glenview • Highland Park • Winnetka • Glencoe • Deerfield • Lincolnwood • Morton Grove • Niles • Park Ridge & more</p>
             </div>
         </div>
     </footer>
+
+    <!-- SCRIPT FOR MOBILE MENU TOGGLE -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
